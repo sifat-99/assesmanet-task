@@ -158,15 +158,16 @@ export default function ShiritoriGame() {
         ));
 
         setWordHistory(prev => [...prev, word]);
-        setLastLetter(newLastLetter);
+
         setCurrentWord('');
         setMessage(`Good job! Next word must start with "${newLastLetter.toUpperCase()}"`);
         setMessageType('success');
+        setLastLetter(newLastLetter);
 
         // Switch to next player after a short delay
         setTimeout(() => {
             switchPlayer();
-        }, 1500);
+        }, 500);
     }, [currentWord, gameStarted, gameOver, wordHistory, lastLetter, validateWord, currentPlayerIndex, handleInvalidWord, switchPlayer]);
 
     // Start a new game
